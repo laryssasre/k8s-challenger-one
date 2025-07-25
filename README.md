@@ -31,19 +31,18 @@ The goal is to understand how to deploy, expose, and organize applications in Ku
 ```bash
 k3d cluster create challenger-k8s-one --agents 2 --port "88:80@loadbalancer"
 ```
-
-### 2. Apply the manifests
-
-```bash
-kubectl apply -f manifests/
-```
-
-### 3. Install Ingress Controller
+### 2. Install Ingress Controller
 
 ```bash
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
 helm install nginx ingress-nginx/ingress-nginx --namespace ingress-nginx --create-namespace
+```
+
+### 3. Apply the manifests
+
+```bash
+kubectl apply -f manifests/
 ```
 
 ### 4. Access the App
